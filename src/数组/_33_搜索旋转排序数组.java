@@ -17,6 +17,7 @@ public class _33_搜索旋转排序数组 {
         if (list.contains(target)) return list.indexOf(target);
         return -1;
     }*/
+    //方法二： 二分查找
     public int search(int[] nums, int target) {
         int n = nums.length;
         if (n==0) return -1;
