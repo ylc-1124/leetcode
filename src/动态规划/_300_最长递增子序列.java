@@ -1,4 +1,4 @@
-package 数组;
+package 动态规划;
 
 /**
  * https://leetcode-cn.com/problems/longest-increasing-subsequence/
