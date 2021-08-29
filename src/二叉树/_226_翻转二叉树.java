@@ -10,7 +10,7 @@ import java.util.Queue;
  */
 public class _226_翻转二叉树 {
     //方法一：层序遍历
-    public TreeNode invertTree(TreeNode root) {
+    public TreeNode invertTree2(TreeNode root) {
         if(root==null) return root;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -28,16 +28,20 @@ public class _226_翻转二叉树 {
         }
         return root;
     }
-    //方法二：前序遍历
-    public TreeNode invertTree2(TreeNode root) {
-        if (root == null) {
-            return root;
-        }
+
+    /**
+     *  翻转以root为根节点的树
+     */
+    public TreeNode invertTree(TreeNode root) {
+       if (root == null) return null;
+
         TreeNode tmp = root.left;
         root.left = root.right;
         root.right = tmp;
-        invertTree2(root.left);
-        invertTree2(root.right);
+
+        invertTree(root.left);
+        invertTree(root.right);
+
         return root;
     }
 
