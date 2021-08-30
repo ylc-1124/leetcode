@@ -24,8 +24,7 @@ public class _105_从前序与中序遍历序列构造二叉树 {
         if (preBegin > preEnd) return null;
         TreeNode root = new TreeNode(preorder[preBegin]);
         /*查找根节点在中序遍历的位置*/
-        int index = 0;
-        index = map.get(root.val);
+        int index = map.get(root.val);
         /*左子树的节点个数*/
         int leftSize = index - inBegin;
         root.left = buildTreeHelper(preorder, preBegin + 1, preBegin + leftSize
