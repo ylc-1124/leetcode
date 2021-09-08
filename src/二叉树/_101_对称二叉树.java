@@ -5,16 +5,16 @@ package 二叉树;
  */
 public class _101_对称二叉树 {
     public boolean isSymmetric(TreeNode root) {
-        if (root == null) return true;
-        return dfs(root.left, root.right);
+        //判断一棵树是否是对称的无非是判断他的左右子树是否是镜像的
+        return isMirror(root.left, root.right);
     }
 
-    private boolean dfs(TreeNode left, TreeNode right) {
-        if (left == null && right == null) return true;
-        if (left == null || right == null) return false;
-        if (left.val!=right.val) return false;
+    private boolean isMirror(TreeNode root1, TreeNode root2) {
+        if(root1 == null && root2 == null) return true;
+        if (root1 == null || root2 == null) return false;
 
-        return dfs(left.left, right.right) && dfs(left.right, right.left);
-
+        return isMirror(root1.left, root2.right)
+                && isMirror(root1.right, root2.left)
+                && root1.val == root2.val;
     }
 }
