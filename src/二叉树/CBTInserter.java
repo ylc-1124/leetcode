@@ -10,7 +10,6 @@ import java.util.Queue;
 public class CBTInserter {
     private List<TreeNode> list = new LinkedList<>();
     public CBTInserter(TreeNode root) {
-        //传入的树本身已经是完全二叉树了，初始化的时候只做一件事--BFS记录所有节点
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
@@ -25,15 +24,13 @@ public class CBTInserter {
         }
     }
 
-    public int insert(int val) {
-        TreeNode node = new TreeNode(val);
+    public int insert(int v) {
+        TreeNode node = new TreeNode(v);
         list.add(node);
-        int size = list.size();
-        //父节点的索引
-        int index = (size & 1) == 0 ?
-                (size >> 1) - 1 : ((size + 1) >> 1) - 2;
-        TreeNode parent = list.get(index);
-        if ((size & 1) == 0) {
+        int index = list.size() - 1; //node在list中的索引
+        int pIndex = index % 2 != 0 ? (index - 1) >> 1 : (index - 2) >> 1;
+        TreeNode parent = list.get(pIndex);
+        if (index % 2 != 0) {
             parent.left = node;
         } else {
             parent.right = node;
