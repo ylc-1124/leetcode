@@ -7,19 +7,16 @@ import java.util.List;
  * https://leetcode-cn.com/problems/permutations/
  */
 public class _46_全排列 {
-
-    List<List<Integer>> result = new LinkedList<>();
-
+    List<List<Integer>> res = new LinkedList<>();
     public List<List<Integer>> permute(int[] nums) {
         LinkedList<Integer> track = new LinkedList<>();
         backtrack(nums, track);
-        return result;
+        return res;
     }
 
-    private void backtrack(int[] nums, LinkedList track) {
-        //base case
+    private void backtrack(int[] nums, LinkedList<Integer> track) {
         if (track.size() == nums.length) {
-            result.add(new LinkedList<>(track));
+            res.add(new LinkedList<>(track));
             return;
         }
 
@@ -33,5 +30,6 @@ public class _46_全排列 {
             track.removeLast();
         }
     }
+
 }
 
