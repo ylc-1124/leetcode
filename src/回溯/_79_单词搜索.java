@@ -5,7 +5,6 @@ package 回溯;
  */
 public class _79_单词搜索 {
     public boolean exist(char[][] board, String word) {
-        if (board == null) return false;
         boolean[][] visited = new boolean[board.length][board[0].length];
 
         for (int row = 0; row < board.length; row++) {
@@ -17,23 +16,20 @@ public class _79_单词搜索 {
     }
 
     private boolean search(char[][] board, String word,
-                           int row, int col, int i, boolean[][] visited) {
-        //base case
-        if (i >= word.length()) return true;
+                           int row, int col, int index, boolean[][] visited) {
+        if (index>=word.length()) return true;
         if (row < 0 || row >= board.length
-                || col < 0 || col >= board[0].length
-                || board[row][col] != word.charAt(i)
+                || col < 0 || col > board[0].length
+                ||board[row][col]!=word.charAt(index)
                 || visited[row][col]) return false;
-
         //做选择
         visited[row][col] = true;
-        boolean result = search(board, word, row + 1, col, i + 1, visited)
-                || search(board, word, row - 1, col, i + 1, visited)
-                || search(board, word, row, col + 1, i + 1, visited)
-                || search(board, word, row, col - 1, i + 1, visited);
-        //撤销选择
+        boolean res = search(board, word, row + 1, col, index + 1, visited)
+                || search(board, word, row - 1, col, index + 1, visited)
+                || search(board, word, row, col + 1, index + 1, visited)
+                || search(board, word, row, col - 1, index + 1, visited);
         visited[row][col] = false;
-        return result;
+        return res;
     }
 
 }
