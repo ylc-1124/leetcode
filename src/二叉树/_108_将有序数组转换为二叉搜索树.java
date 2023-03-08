@@ -5,22 +5,34 @@ package 二叉树;
  */
 public class _108_将有序数组转换为二叉搜索树 {
     public TreeNode sortedArrayToBST(int[] nums) {
-        if (nums == null || nums.length == 0) return null;
-        return dfs(nums, 0, nums.length - 1);
+        return buildTree(nums, 0, nums.length - 1);
     }
 
-    private TreeNode dfs(int[] nums, int begin, int end) {
+    private TreeNode buildTree(int[] nums, int begin, int end) {
         if (begin > end) return null;
-        /*造根节点*/
-        int mid = (begin + end) / 2;
+        int mid = (begin + end) >> 1;
         TreeNode root = new TreeNode(nums[mid]);
-
-        TreeNode left = dfs(nums, begin, mid - 1);
-        TreeNode right = dfs(nums, mid + 1, end);
-
-        root.left = left;
-        root.right = right;
-
+        root.left = buildTree(nums, begin, mid - 1);
+        root.right = buildTree(nums, mid + 1, end);
         return root;
     }
+//    public TreeNode sortedArrayToBST(int[] nums) {
+//        if (nums == null || nums.length == 0) return null;
+//        return dfs(nums, 0, nums.length - 1);
+//    }
+//
+//    private TreeNode dfs(int[] nums, int begin, int end) {
+//        if (begin > end) return null;
+//        /*造根节点*/
+//        int mid = (begin + end) / 2;
+//        TreeNode root = new TreeNode(nums[mid]);
+//
+//        TreeNode left = dfs(nums, begin, mid - 1);
+//        TreeNode right = dfs(nums, mid + 1, end);
+//
+//        root.left = left;
+//        root.right = right;
+//
+//        return root;
+//    }
 }
