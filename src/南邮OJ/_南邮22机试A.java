@@ -1,3 +1,5 @@
+package 南邮OJ;
+
 import java.util.Arrays;
 import java.util.Scanner;
 

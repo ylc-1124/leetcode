@@ -1,3 +1,5 @@
+package 南邮OJ;
+
 import java.util.Scanner;
 
 public class _南邮22机试B {

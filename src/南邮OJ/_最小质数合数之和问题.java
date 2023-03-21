@@ -1,23 +1,26 @@
+package 南邮OJ;
+
 import java.util.Scanner;
 
 /**
- * 求大于n的最小质数和最小合数之和
+ * https://noj.njupt.edu.cn/problem/PROB1012
  */
-public class _南邮21机试 {
+public class _最小质数合数之和问题 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int zs = 0, hs = 0;
-        //找出最小质数
+        int zs = 0;
+        int hs = 0;
+        //找大于n的最小质数
         for (int i = n + 1; ; i++) {
-            if (isZS(i)) {
+            if (isZhiShu(i)) {
                 zs = i;
                 break;
             }
         }
-        //找出最小合数
+        //找最小合数
         for (int i = n + 1; ; i++) {
-            if (!isZS(i)) {
+            if (!isZhiShu(i)) {
                 hs = i;
                 break;
             }
@@ -25,10 +28,12 @@ public class _南邮21机试 {
         System.out.println(zs + hs);
     }
 
-    private static boolean isZS(int n) {
-        for (int i = 2; i < n; i++) {
-            if (n % i == 0) return false;
+    //判断质数O(根号n)
+    private static boolean isZhiShu(int v) {
+        for (int i = 2; i * i <= v; i++) {
+            if (v % i == 0) return false;
         }
         return true;
     }
+
 }
