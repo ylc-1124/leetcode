@@ -2,6 +2,9 @@ package 南邮OJ;
 
 import java.util.*;
 
+/**
+ * 跟leetcode上合并区间是一样一样的
+ */
 public class _小明算树 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -21,6 +24,7 @@ public class _小明算树 {
             }
         });
         List<int[]> list = new ArrayList<>();
+        //先放入起点最小的区间
         list.add(area[0]);
         for (int i = 1; i < area.length; i++) {
             int[] cur = area[i]; //当前遍历到的区间
