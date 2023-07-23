@@ -2,7 +2,7 @@ package 动态规划;
 
 import java.util.Arrays;
 
-public class _674最长连续递增序列 {
+public class _674_最长连续递增序列 {
     public int findLengthOfLCIS(int[] nums) {
         //dp[i]表示以nums[i]为末尾的最长连续递增子序列的长度
         int[] dp = new int[nums.length];
