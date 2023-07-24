@@ -16,7 +16,7 @@ public class _7_30_2797_最短前缀 {
                 list.add(str);
             }
         }
-        Trie trie = new Trie();
+        Trie trie = new Trie(); // 创建根节点
         //初始化前缀树
         for (String s : list) {
             trie.insert(s);
@@ -48,6 +48,7 @@ public class _7_30_2797_最短前缀 {
                 if (node.next[c - 'a'] == null) {
                     node.next[c - 'a'] = new Trie();
                 } else {
+                    // 为了找最短前缀
                     node.next[c - 'a'].numWords++;
                 }
                 node = node.next[c - 'a'];
