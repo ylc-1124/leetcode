@@ -1,5 +1,7 @@
 package 二工大PTA;
 
+import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class _7_11整数的分类处理 {
@@ -8,8 +10,8 @@ public class _7_11整数的分类处理 {
         int n = sc.nextInt();
         int A1 = Integer.MIN_VALUE, A2 = 0;
         double A3 = 0.0;
-        double sum = 0;
-        int count = 0;
+        double sum = 0; // 满足A3的整数之和
+        int count = 0; // 满足A3的整数的个数
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
