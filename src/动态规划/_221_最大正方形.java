@@ -4,7 +4,7 @@ public class _221_最大正方形 {
     public int maximalSquare(char[][] matrix) {
         int m = matrix.length;
         int n = matrix[0].length;
-        // 以 matrix[i][j]作为右下角元素的最大正方形变长
+        // 以 matrix[i][j]作为右下角的最大正方形的边长
         int[][] dp = new int[m][n];
         // base case
         for (int j = 0; j < n; j++) {
