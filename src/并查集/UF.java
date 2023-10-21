@@ -6,7 +6,7 @@ package 并查集;
 public class UF {
     //连通分量个数
     private int count;
-    //存储一棵树
+    //存储一棵 树
     private int[] parent;
     //记录每棵树的子节点数
     private int[] size;
