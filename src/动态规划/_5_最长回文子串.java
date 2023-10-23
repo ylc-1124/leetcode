@@ -1,6 +1,7 @@
 package 动态规划;
 
 public class _5_最长回文子串 {
+
     public String longestPalindrome(String s) {
         String res = "";
         for (int i = 0; i < s.length(); i++) {
