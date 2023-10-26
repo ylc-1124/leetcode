@@ -7,38 +7,59 @@ import java.util.Arrays;
  */
 public class _300_最长递增子序列 {
 
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        // 以 nums[i]为结尾的，最长递增子序列的长度为 dp[i]
+        int[] dp = new int[n];
+        Arrays.fill(dp, 1);
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[j] < nums[i]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
     /**
      * 状态：数字，即 nums[i]
      * 选择：索引（导致数字变换）
      * 数组定义：dp[i]是以nums[i]作为结尾的 最长递增子序列的长度
      * base case：dp[0] = 1
      */
-    public int lengthOfLIS(int[] nums) {
-        int[] dp = new int[nums.length];
-        // 初始值
-        Arrays.fill(dp, 1);
-        // base case
-        dp[0] = 1;
-        // 递推求解
-        for (int i = 1; i < nums.length; i++) {
-            // 使用已知的子问题解求当前状态的解（遍历选择来获取子问题解）
-            // 枚举出nums[i]前面的所有值小于nums[i]的问题解（只有这些状态对求解当前问题有用）
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    dp[i] = Math.max(dp[j] + 1, dp[i]);
-                }
-            }
-        }
-
-        // 找出dp数组中的最大值，即答案
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < dp.length; i++) {
-            if (dp[i] > max) {
-                max = dp[i];
-            }
-        }
-        return max;
-    }
+//    public int lengthOfLIS(int[] nums) {
+//        int[] dp = new int[nums.length];
+//        // 初始值
+//        Arrays.fill(dp, 1);
+//        // base case
+//        dp[0] = 1;
+//        // 递推求解
+//        for (int i = 1; i < nums.length; i++) {
+//            // 使用已知的子问题解求当前状态的解（遍历选择来获取子问题解）
+//            // 枚举出nums[i]前面的所有值小于nums[i]的问题解（只有这些状态对求解当前问题有用）
+//            for (int j = 0; j < i; j++) {
+//                if (nums[i] > nums[j]) {
+//                    dp[i] = Math.max(dp[j] + 1, dp[i]);
+//                }
+//            }
+//        }
+//
+//        // 找出dp数组中的最大值，即答案
+//        int max = Integer.MIN_VALUE;
+//        for (int i = 0; i < dp.length; i++) {
+//            if (dp[i] > max) {
+//                max = dp[i];
+//            }
+//        }
+//        return max;
+//    }
 
 
 //    public int lengthOfLIS(int[] nums) {
