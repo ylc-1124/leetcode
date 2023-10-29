@@ -10,6 +10,7 @@ public class _1465_切割后面积最大的蛋糕 {
         Arrays.sort(horizontalCuts);
         Arrays.sort(verticalCuts);
 
+        // 切割后的每块的高宽
         int[] high = new int[m + 1];
         int[] width = new int[n + 1];
         high[0] = horizontalCuts[0];
