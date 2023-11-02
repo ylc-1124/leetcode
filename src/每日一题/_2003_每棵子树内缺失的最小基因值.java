@@ -44,6 +44,7 @@ public class _2003_每棵子树内缺失的最小基因值 {
         while (node >= 0) {
             dfs(node, map, nums, set);
             while (set.contains(min_gene)) {
+                // 祖先节点的最小缺失基因值只可能 >= 其子树
                 min_gene++;
             }
             ans[node] = min_gene;
