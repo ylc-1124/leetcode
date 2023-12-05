@@ -7,7 +7,7 @@ public class UF {
     //连通分量个数
     private int count;
     //存储一棵 树
-    private int[] parent;
+    public int[] parent;
     //记录每棵树的子节点数
     private int[] size;
 
@@ -29,7 +29,7 @@ public class UF {
         int rootQ = find(q);
         if (rootP == rootQ) return;
 
-        //节点少的树嫁接到节点多的树
+        //节点少的树嫁接到节点多的树（整颗树）
         if (size[rootP] > size[rootQ]) {
             parent[rootQ] = rootP;
             size[rootP] += size[rootQ];
@@ -53,7 +53,7 @@ public class UF {
     /**
      * 返回节点x的连通分量的根节点
      */
-    private int find(int x) {
+    public int find(int x) {
         while (parent[x] != x) {
             //路径压缩
             parent[x] = parent[parent[x]];

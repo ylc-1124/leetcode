@@ -4,8 +4,7 @@ public class _123_买卖股票的最佳时机III {
     /**
      * dp[i][j][0]=max{dp[i-1][j][0], dp[i-1][j][1]+prices[i]}
      * dp[i][j][1]=max{dp[i-1][j][1], dp[i-1][j-1][0]-prices[i]}
-     * 这里的 j-1需要理解一下, 得在昨天至多允许交易 j-1次的状态上转移，才能保证今天可以买入股票继续交易
-     * 用昨天至多交易 j-1次的结果，今天买入股票一次，得到的结果是：至多允许交易 j次的结果
+     * 用昨天至多交易 j-1次的结果，今天买入股票一次，才能把状态转为：至多允许交易 j次的结果
      */
     public int maxProfit(int[] prices) {
         int n = prices.length;
