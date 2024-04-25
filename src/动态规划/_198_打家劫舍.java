@@ -6,17 +6,35 @@ import java.util.Arrays;
  * https://leetcode-cn.com/problems/house-robber/
  */
 public class _198_打家劫舍 {
+    /**
+     * dp[i] = max{偷，不偷} = max{nums[i-1]+dp[i-2], dp[i-1]}
+     */
     public int rob(int[] nums) {
-        int n = nums.length; // 房屋数量
-        // 对于前i户人家，最多能偷到dp[i]块钱
+        int n = nums.length;
+        // 对于前 i户人家，最多能偷到 dp[i]
         int[] dp = new int[n + 1];
+        // base case
         dp[0] = 0;
         dp[1] = nums[0];
         for (int i = 2; i <= n; i++) {
-            dp[i] = Math.max(dp[i - 2] + nums[i - 1], dp[i - 1]);
+            dp[i] = Math.max(nums[i - 1] + dp[i - 2], dp[i - 1]);
         }
+
         return dp[n];
     }
+
+
+//    public int rob(int[] nums) {
+//        int n = nums.length; // 房屋数量
+//        // 对于前i户人家，最多能偷到dp[i]块钱
+//        int[] dp = new int[n + 1];
+//        dp[0] = 0;
+//        dp[1] = nums[0];
+//        for (int i = 2; i <= n; i++) {
+//            dp[i] = Math.max(dp[i - 2] + nums[i - 1], dp[i - 1]);
+//        }
+//        return dp[n];
+//    }
 
 //    int[] memo;
 //    public int rob(int[] nums) {
